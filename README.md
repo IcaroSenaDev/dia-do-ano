@@ -20,7 +20,7 @@ O sistema permite que o usuário insira uma data e, após o envio, o sistema cal
 Primeiro, clone este repositório para a sua máquina local:
 
 ```bash
-git clone https://github.com/IcaroSenaDev/contador-dias-ano.git
+git clone https://github.com/IcaroSenaDev/dia-do-ano.git
 cd contador-dias-ano
 ```
 
