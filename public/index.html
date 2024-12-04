@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contagem de Dias para o Próximo Ano</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Quantos dias faltam para o próximo ano?</h1>
+        <form id="dateForm">
+            <label for="date">Escolha uma data:</label>
+            <input type="date" id="date" required>
+            <button type="submit">Calcular</button>
+        </form>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        const form = document.getElementById('dateForm');
+        const resultDiv = document.getElementById('result');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const inputDate = document.getElementById('date').value;
+            fetch(`/dias-para-proximo-ano?data=${inputDate}`)
+                .then(response => response.json())
+                .then(data => {
+                    resultDiv.innerHTML = `Faltam ${data.dias} dias para o próximo ano.`;
+                })
+                .catch(error => {
+                    resultDiv.innerHTML = 'Ocorreu um erro, tente novamente.';
+                });
+        });
+    </script>
+</body>
+</html>
